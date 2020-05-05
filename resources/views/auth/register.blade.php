@@ -13,37 +13,11 @@
         <div class="sec1-1">
             <h1>Warehouse Management</h1>
         </div>
-        <form method="POST" action="{{route('login')}}">
-            @csrf
-            <div class="sec1-2">
-                <p\>Username</p>
-                <!-- <input type="text" placeholder="Username*" > -->
-                <input id="username" type="text" class="sec-1-3-input @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
-
-                    @error('username')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-            </div>
-            <div class="sec1-3">
-                <p\>Password</p>
-                <!-- <input type="password" placeholder="Password*" class="sec-1-3-input" id="myInput"> -->
-                <input id="password" type="password" class="sec-1-3-input @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                    @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                <button onclick="myFunction()" id="MyInput">Show password</button>
-            </div>
-            <div class="sec1-4">
-            <button type="submit" class="btn btn-primary">
-                {{ __('Login') }}
-            </button>            
-            </div>
-        </form>
+        <div class="sec1-3">
+            <p>
+                Already have an account? <a href="login">Login here</a>
+            </p>
+        </div>
     </section>
     <section class="sec2">
         <div class="sec2-1">
