@@ -38,10 +38,9 @@
                             <input type="text" class="input1" name="name" value="{{$item->name}}">
                         </div>
                         <div class="yey">
-                            <p>
-                                *max 500 characters
-                            </p>
+                        <p>{{$errors->first('name')}}</p>
                         </div>
+                        
                     </div>
                     <p>
                         New Item Location :
@@ -51,9 +50,7 @@
                             <input type="text" class="input1" name="location" value="{{$item->location}}">
                         </div>
                         <div class="yey">
-                            <p>
-                                *max 500 characters
-                            </p>
+                        <p>{{$errors->first('location')}}</p>
                         </div>
                     </div>
                     <p>
@@ -64,9 +61,7 @@
                             <input type="text" class="input2" name="qty" value="{{$item->qty}}">
                         </div>
                         <div class="yey2">
-                            <p>
-                                *max 5000 Items
-                            </p>
+                            <p>{{$errors->first('qty')}}</p>
                         </div>
                     </div>
                     <div>

@@ -59,7 +59,7 @@
           </table>
     </section>
     <section class="sec4">
-        <button>1</button>
+       {{ $items->links() }}
     </section>
 </body>
 </html>

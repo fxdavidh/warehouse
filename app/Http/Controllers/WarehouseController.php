@@ -38,12 +38,14 @@ class WarehouseController extends Controller
      */
     public function store(Request $request)
     {
-        Item::create($request->all());
-        // $validatedData = $request->validate([
-        //     'name' => 'required|max:500',
-        //     'qty' => 'required|max:1000000',
-        //     'location' => 'required|max:500'
-        // ]);
+        Item::create(
+            $request->validate([
+                'name' => 'required|max:500|string|min:3',
+                'location' => 'required|max:500|string|min:3',
+                'qty' => 'required|max:1000000|integer'
+            ])
+        );
+
         return redirect('/home');
     }
 
@@ -78,7 +80,14 @@ class WarehouseController extends Controller
      */
     public function update(Request $request, item $item)
     {
-        $item->update($request->all());
+        $item->update(
+
+            $request->validate([
+                'name' => 'required|max:500|string|min:3',
+                'location' => 'required|max:500|string|min:3',
+                'qty' => 'required|max:1000000|integer'
+            ])
+        );
         return redirect('home');
     }
 
