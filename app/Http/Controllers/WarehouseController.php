@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class WarehouseController extends Controller
 {
@@ -13,7 +16,8 @@ class WarehouseController extends Controller
      */
     public function index()
     {
-        //
+        $items = DB::table('items')->paginate(10);
+        return view('home', compact('items'));
     }
 
     /**
@@ -23,7 +27,7 @@ class WarehouseController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -34,7 +38,13 @@ class WarehouseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Item::create($request->all());
+        // $validatedData = $request->validate([
+        //     'name' => 'required|max:500',
+        //     'qty' => 'required|max:1000000',
+        //     'location' => 'required|max:500'
+        // ]);
+        return redirect('/home');
     }
 
     /**
