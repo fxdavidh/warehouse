@@ -28,6 +28,7 @@
     <section class="sec3">
         <table>
             <tr>
+              <th>Id</th>
               <th>Name</th>
               <th>Location</th>
               <th>Quantity</th>
@@ -35,13 +36,14 @@
             </tr>
             @foreach($items as $item)
             <tr>
+                <td><p>{{$item->id}}</p></td>
                 <td><p>{{$item->name}}</p></td>
                 <td><p>{{$item->location}}</p></td>
                 <td><p>{{$item->qty}}</p></td>
               <td>
                 <div class="sec3-last">
                   <div>
-                    <a href="{{url('home/edit')}}" class="but1">Edit</a>
+                    <a href="{{url('home/'.$item->id.'/edit')}}" class="but1">Edit</a>
                   </div>
                   <div>
                     <a href="" class="but2">delete</a>
