@@ -46,7 +46,11 @@
                     <a href="{{url('home/'.$item->id.'/edit')}}" class="but1">Edit</a>
                   </div>
                   <div>
-                    <a href="" class="but2">delete</a>
+                    <form action="{{ url('home/'.$item->id) }}" method="POST">
+                      @csrf
+                      {{method_field('DELETE')}}
+                      <button type='submit' class="but2">Delete</button>
+                    </form>
                   </div>
                 </div>
               </td>

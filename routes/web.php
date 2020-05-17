@@ -25,3 +25,4 @@ Route::post('/home', 'WarehouseController@store')->name('store');
 Route::get('/home', 'WarehouseController@index');
 Route::get('/home/{item}/edit', 'WarehouseController@edit');
 Route::post('/home/{item}', 'WarehouseController@update');
+Route::delete('home/{item}', 'WarehouseController@destroy');
