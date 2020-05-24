@@ -26,10 +26,9 @@ Route::get('/home', 'WarehouseController@index');
 Route::get('/home/{item}/edit', 'WarehouseController@edit');
 Route::post('/home/{item}', 'WarehouseController@update');
 Route::delete('home/{item}', 'WarehouseController@destroy');
-Route::get('/logout', function(){
-    Session::flush();
+Route::post('/logout', function(){
     Auth::logout();
-    return Redirect::to("/login");
+    return Redirect("/login");
 });
 
 Route::post('/upload', 'WarehouseController@image');

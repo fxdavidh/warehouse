@@ -23,9 +23,10 @@
     </section>
     <section class="sec2">
         <div class="sec2-1">
-            <div>
-                <a href="/logout" class="sec2-btn1">logout</a>
-            </div>
+            <form action="{{url('/logout')}}" method="POST">
+              @csrf
+              <button type="submit">Logout</button>
+            </form>
             <div>
                 <a href="{{url('home/create')}}" class="sec2-btn2">Add data</a>
             </div>            
