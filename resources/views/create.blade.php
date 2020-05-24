@@ -25,7 +25,7 @@
     <section class="sec2">
         <div class="gede">
             <div class="hitam">
-                <form action="{{ route('store') }}" method= "POST">
+                <form action="{{ route('store') }}" method= "POST" enctype="multipart/form-data">
                     @csrf
                     <h1 class="up1">
                     Add New Item
@@ -63,6 +63,12 @@
                             <p>{{$errors->first('qty')}}</p>
                         </div>
                     </div>
+                    <div>
+                        <br>
+                      <input type="file" name="image">
+                      <br>
+                      <input type="submit" value="upload" id="">
+                  </div>
                     <div>
                         <button type="submit" class="button">Save</button>
                     </div>

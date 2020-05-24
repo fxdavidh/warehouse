@@ -38,14 +38,30 @@ class WarehouseController extends Controller
      */
     public function store(Request $request)
     {
-        Item::create(
-            $request->validate([
-                'name' => 'required|max:500|string|min:3',
-                'location' => 'required|max:500|string|min:3',
-                'qty' => 'required|max:1000000|integer'
-            ])
-        );
+        $this->validate($request, [
+            'name' => 'required|max:500|string|min:3',
+            'location' => 'required|max:500|string|min:3',
+            'qty' => 'required|max:1000000|integer',
+            'image' => 'image|nullable|max:1999'
+        ]);
+        
+        $item = new Item;
+        $item->name = $request->get('name');
+        $item->location = $request->get('location');
+        $item->qty = $request->get('qty');
+        if($request->hasFile('image')){
+            $fileNameWithExt = $request->file('image')->getClientOriginalName();
+            $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $ext = $request->file('image')->getClientOriginalExtension();
+            $file = $fileName.'_'.$item->name.'.'.$ext;
+            $path = $request->file('image')->storeAs('public/images', $file);
+            $item->image = $file;
+        }
+        else {
+            $item->image = 'noimage.jpg';
+        }
 
+        $item->save();
         return redirect('/home');
     }
 
@@ -81,11 +97,11 @@ class WarehouseController extends Controller
     public function update(Request $request, item $item)
     {
         $item->update(
-
             $request->validate([
                 'name' => 'required|max:500|string|min:3',
                 'location' => 'required|max:500|string|min:3',
-                'qty' => 'required|max:1000000|integer'
+                'qty' => 'required|max:1000000|integer',
+                'image' => 'image|nullable|max:1999'
             ])
         );
         return redirect('home');

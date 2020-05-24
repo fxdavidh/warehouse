@@ -18,6 +18,7 @@ class CreateItemsTable extends Migration
             $table->string('name');
             $table->string('location');
             $table->integer('qty');
+            $table->string('image');
             // $table->unsignedBigInteger('storage_id');
             // $table->foreign('storage_id')->references('id')->on('storages');
             $table->timestamps();
