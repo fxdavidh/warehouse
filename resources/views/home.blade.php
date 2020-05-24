@@ -38,14 +38,18 @@
               <th>Name</th>
               <th>Location</th>
               <th>Quantity</th>
+              <th>Photos</th>
               <th>Action</th>
             </tr>
             @foreach($items as $item)
             <tr>
-                <td><p>{{$item->id}}</p></td>
-                <td><p>{{$item->name}}</p></td>
-                <td><p>{{$item->location}}</p></td>
-                <td><p>{{$item->qty}}</p></td>
+              <td><p>{{$item->id}}</p></td>
+              <td><p>{{$item->name}}</p></td>
+              <td><p>{{$item->location}}</p></td>
+              <td><p>{{$item->qty}}</p></td>
+              <td>
+                <img src="storage/images/{{$item->image}}" style="width:100%" alt="NoImage">
+              </td>
               <td>
                 <div class="sec3-last">
                   <div>

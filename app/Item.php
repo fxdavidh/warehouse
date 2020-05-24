@@ -13,7 +13,8 @@ class Item extends Model
     protected $fillable = [
         "name",
         "location",
-        "qty"
+        "qty",
+        "image"
         // "storage_id"
     ];
 }

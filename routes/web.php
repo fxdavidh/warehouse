@@ -31,3 +31,5 @@ Route::get('/logout', function(){
     Auth::logout();
     return Redirect::to("/login");
 });
+
+Route::post('/upload', 'WarehouseController@image');
